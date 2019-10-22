@@ -13,7 +13,7 @@ namespace DiscordBot.src
 
         public async Task MainAsync()
         {
-            string externalIp = FileOperations.RunBatch("IpCheck.bat");
+            string externalIp = FileOperations.GetIp("IpCheck.bat");
             Console.WriteLine(externalIp);
         }
 

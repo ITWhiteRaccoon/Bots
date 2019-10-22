@@ -1,0 +1,87 @@
+{
+  "ok": true,
+  "result":
+  [
+    {
+      "update_id": 107242871,
+      "message":
+      {
+        "message_id": 1,
+        "from":
+        {
+          "id": 561670453,
+          "is_bot": false,
+          "first_name": "Edu",
+          "username": "FadaDoZiper"
+        },
+        "chat":
+        {
+          "id": -342712914,
+          "title": "Amiguinhos desse caralho!",
+          "type": "group",
+          "all_members_are_administrators": true
+        },
+        "date": 1571717316,
+        "new_chat_participant":
+        {
+          "id": 891088321,
+          "is_bot": true,
+          "first_name": "Juninho",
+          "username": "JuninhoMineBot"
+        },
+        "new_chat_member":
+        {
+          "id": 891088321,
+          "is_bot": true,
+          "first_name": "Juninho",
+          "username": "JuninhoMineBot"
+        },
+        "new_chat_members":
+        [
+          {
+            "id": 891088321,
+            "is_bot": true,
+            "first_name": "Juninho",
+            "username": "JuninhoMineBot"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 107242872,
+      "message":
+      {
+        "message_id": 2,
+        "from":
+        {
+          "id": 561670453,
+          "is_bot": false,
+          "first_name": "Edu",
+          "username": "FadaDoZiper"
+        },
+        "chat":
+        {
+          "id": -342712914,
+          "title": "Amiguinhos desse caralho!",
+          "type": "group",
+          "all_members_are_administrators": false
+        },
+        "date": 1571750658,
+        "text": "/Edu @JuninhoMineBot",
+        "entities":
+        [
+          {
+            "offset": 0,
+            "length": 4,
+            "type": "bot_command"
+          },
+          {
+            "offset": 5,
+            "length": 15,
+            "type": "mention"
+          }
+        ]
+      }
+    }
+  ]
+}
