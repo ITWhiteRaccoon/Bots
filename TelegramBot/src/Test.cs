@@ -10,7 +10,7 @@ namespace TelegramBot
         public static void Main(string[] args)
         {
             JuninhoMineBot juninho = new JuninhoMineBot(BotToken);
-            Task<Message> mensagemRetorno = juninho.SendCurrentIpToBot();
+            juninho.SendCurrentIpToBot();
         }
     }
 }
