@@ -11,30 +11,27 @@ namespace TelegramBot
     public class JuninhoMineBot
     {
         private const string IpRetrievingWebsite = "http://ifconfig.me/ip";
-        private readonly string botUrl;
-        private readonly TelegramBotClient bot;
+        private readonly string _botToken;
 
         public JuninhoMineBot(string botToken)
         {
-            bot = new TelegramBotClient(botToken);
-            botUrl = "https://api.telegram.org/bot" + botToken;
+            _botToken = botToken;
         }
 
-        public void SendCurrentIpToBot()
+        public string GetCurrentServerIp()
         {
-            string ipExterno;
-            string webReturnStr;
+            string ipExterno = "";
             using (WebClient webClient = new WebClient())
             {
-                ipExterno = webClient.DownloadString(IpRetrievingWebsite) + ":25565";
-                webReturnStr = webClient.DownloadString(botUrl + "/getUpdates");
+                ipExterno = webClient.DownloadString(IpRetrievingWebsite);
             }
+            return ipExterno;
+        }
 
-            var webReturn = JObject.Parse(webReturnStr);
-
-            string chatId = webReturn.SelectToken("result[0].message.chat.id").ToString();
-            string messageUrl = botUrl + "/sendMessage?chat_id={0}&text={1}";
-            string.Format(messageUrl, chatId, ipExterno);
+        public async Task<Message> SendMessage(string destinationId, string text)
+        {
+            TelegramBotClient bot = new Telegram.Bot.TelegramBotClient(_botToken);
+            return await bot.SendTextMessageAsync(destinationId, text);
         }
     }
 }
