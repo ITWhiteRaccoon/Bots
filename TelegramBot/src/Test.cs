@@ -6,7 +6,6 @@ namespace TelegramBot
 {
     public class Test
     {
-        private const string BotToken = "891088321:AAHIbV4R6KJrkteu-_GupytVPnYDEK9OuCk";
         private const string GroupId = "-342712914";
 
         public static void Main(string[] args)
@@ -17,7 +16,7 @@ namespace TelegramBot
         public static async Task MainAsync(string[] args)
         {
             Console.WriteLine("Sending message...");
-            JuninhoMineBot juninho = new JuninhoMineBot(BotToken);
+            JuninhoMineBot juninho = new JuninhoMineBot(Environment.GetEnvironmentVariable("BotTokenTelegram", EnvironmentVariableTarget.User));
             string ip = juninho.GetCurrentServerIp();
             Message result = await juninho.SendMessage(GroupId, ip);
             Console.WriteLine("Message sent.");

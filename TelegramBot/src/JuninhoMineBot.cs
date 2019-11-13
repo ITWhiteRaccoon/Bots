@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -25,12 +22,13 @@ namespace TelegramBot
             {
                 ipExterno = webClient.DownloadString(IpRetrievingWebsite);
             }
+
             return ipExterno;
         }
 
         public async Task<Message> SendMessage(string destinationId, string text)
         {
-            TelegramBotClient bot = new Telegram.Bot.TelegramBotClient(_botToken);
+            TelegramBotClient bot = new TelegramBotClient(_botToken);
             return await bot.SendTextMessageAsync(destinationId, text);
         }
     }

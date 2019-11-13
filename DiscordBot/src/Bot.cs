@@ -1,20 +1,30 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Discord;
+using Discord.WebSocket;
 
-namespace DiscordBot.src
+namespace DiscordBot
 {
     public class Bot
     {
-        private const String Token = "";
+        private DiscordSocketClient _client;
 
         public static void Main(string[] args)
-            => new Bot().MainAsync().GetAwaiter().GetResult();
+        {
+            new Bot().MainAsync().GetAwaiter().GetResult();
+        }
 
         public async Task MainAsync()
         {
-            string externalIp = FileOperations.GetIp("IpCheck.bat");
+            string botToken = Environment.GetEnvironmentVariable("BotTokenDiscord", EnvironmentVariableTarget.User);
+            string externalIp = FileOperations.GetCurrentServerIp();
             Console.WriteLine(externalIp);
+
+            _client = new DiscordSocketClient();
+            _client.Log += Log;
+            await _client.LoginAsync(TokenType.Bot, botToken);
+            await _client.StartAsync();
+            await Task.Delay(-1);
         }
 
         private Task Log(LogMessage msg)
