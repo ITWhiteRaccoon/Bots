@@ -9,7 +9,7 @@ namespace DiscordBot
     {
         private DiscordSocketClient _client;
 
-        public static void Main(string[] args)
+        public static void Main(string[] args) 
         {
             new Bot().MainAsync().GetAwaiter().GetResult();
         }
